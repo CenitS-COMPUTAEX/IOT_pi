@@ -1,0 +1,78 @@
+<!--
+### IOT_pi configuration file ###
+This file contains all the parameters that can be changed to modify the way the programs in this repository work.
+Changes will be required to ensure everything works on a new testing environment.
+-->
+<Config>
+	<!-- List of remote devices. Contains data used to connect to them. -->
+	<Devices>
+		<Device>
+			<!-- Device IP adress -->
+			<IP></IP>
+			<!-- Device login username -->
+			<Username></Username>
+			<!-- Device login password -->
+			<Password></Password>
+		</Device>
+		<!-- Add more devices here -->
+	</Devices>
+	<!-- Maximum amount of seconds to wait for when trying to connect to a remote device -->
+	<ConnectionTimeout>5</ConnectionTimeout>
+	<!-- Maximum amount of connection attempts to perform when trying to connect to a remote device -->
+	<ConnectionTries>5</ConnectionTries>
+	<!-- Parameters used when running attacks -->
+	<Attacks>
+		<Mining>
+			<!-- Path to the mining executable that will be sent to the remote device -->
+			<FileToSend>files/cpuminer</FileToSend>
+			<!-- If you need to use different binaries for each end device (because their architecture is different and a single
+			binary wouldn't be compatible with all of them), comment the <FileToSend> tag and uncomment this one instead.
+			You need to specify a binary for each device, in the same order as the devices listed above in the <Devices> tag.
+			You can specify the same binary more than once. -->
+			<!--
+			<FilesToSend>
+				<file>files/cpuminer1</file>
+				<file>files/cpuminer2</file>
+				<file>files/cpuminer1</file>
+			</FilesToSend>
+			-->
+			<!-- Path to the remote folder where the executable will be placed -->
+			<RemoteFile>files/cpuminer</RemoteFile>
+		</Mining>
+		<Login>
+			<!-- Number of threads to use to launch attacks -->
+			<NumThreads>16</NumThreads>
+		</Login>
+		<Encryption>
+			<!-- Path to the encryption executable that will be sent to the remote device -->
+			<FileToSend>files/crypt</FileToSend>
+			<!-- If you need to use different binaries for each end device (because their architecture is different and a single
+			binary wouldn't be compatible with all of them), comment the <FileToSend> tag and uncomment this one instead.
+			You need to specify a binary for each device, in the same order as the devices listed above in the <Devices> tag.
+			You can specify the same binary more than once. -->
+			<!--
+			<FilesToSend>
+				<file>files/crypt1</file>
+				<file>files/crypt2</file>
+				<file>files/crypt1</file>
+			</FilesToSend>
+			-->
+			<!-- Path to the remote folder where the executable will be placed -->
+			<RemoteFile>files/crypt</RemoteFile>
+			<!-- Folder to encrypt in the remote device -->
+			<FolderToEncrypt>files/crypt-files</FolderToEncrypt>
+			<!-- Minimum amount of seconds to run the encryption program for -->
+			<MinDuration>3</MinDuration>
+			<!-- Maximum amount of seconds to wait for the script to finish -->
+			<WaitTimeout>10</WaitTimeout>
+		</Encryption>
+		<Pass>
+			<!-- Path to the remote folder where the password guessing program will be placed -->
+			<RemoteFile>files/password_guess.py</RemoteFile>
+		</Pass>
+	</Attacks>
+	<!-- Command that needs to be executed to run Python on the target devices. This is usually "python" or "python3". -->
+	<RemotePythonCommand>python</RemotePythonCommand>
+	<!-- Time to wait (in seconds, decimal) between power usage measurements -->
+	<MeasurementDelay>0.2</MeasurementDelay>
+</Config>
