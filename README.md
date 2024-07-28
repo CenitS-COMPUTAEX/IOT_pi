@@ -3,7 +3,7 @@ This repository is part of the DASIA-IoT project, focused on detecting attacks a
 
 The following papers have been published for this project:
 
-- _Intrusion detection for IoT environments through side-channel and Machine Learning techniques_ (2024) (awaiting publication, a link to the paper will be made available here in the future)
+- [Intrusion detection for IoT environments through side-channel and Machine Learning techniques](https://doi.org/10.1109/ACCESS.2024.3362670) (2024)
 
 The following repositories are included in this project:
 
